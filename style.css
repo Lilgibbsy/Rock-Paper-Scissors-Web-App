@@ -1,0 +1,28 @@
+body {
+  text-align: center;
+  background: url("img/background.png") no-repeat center fixed;
+  background-size: cover;
+  width: 900px;
+  margin: auto;
+}
+
+h1 {
+  font-family: "Bebas Neue", cursive;
+  font-size: 75px;
+}
+p {
+  font-family: "Bebas Neue", cursive;
+  font-size: 25px;
+}
+#botLoading {
+  margin-right: 30px;
+}
+#playerLoading {
+  margin-left: 30px;
+}
+#CPU {
+  margin-right: 175px;
+}
+#Player {
+  margin-left: 175px;
+}
