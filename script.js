@@ -1,7 +1,7 @@
 let score = 0;
 let botScore = 0;
 //Function
-document.getElementById("btn").addEventListener("click", animate);
+document.getElementById("button").addEventListener("click", animate);
 function animate() {
   //Randomizer
   let playerMove = document.getElementById("playerMove").value;
