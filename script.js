@@ -1,12 +1,25 @@
 let score = 0;
 let botScore = 0;
+let paperRepeat = 0;
+let rockRepeat = 0;
+let scissorsRepeat = 0;
 //Function
 document.getElementById("button").addEventListener("click", animate);
 function animate() {
   //Randomizer
   let playerMove = document.getElementById("playerMove").value;
   let rndm = Math.round(Math.random() * 2);
-  //Random bot move
+  //Not random CPU moves
+  if (paperRepeat >= 4) {
+    rndm = 2;
+  }
+  if (rockRepeat >= 4) {
+    rndm = 0;
+  }
+  if (scissorsRepeat >= 4) {
+    rndm = 1;
+  }
+  //Random CPU move
   if (!(playerMove == "")) {
     if (rndm == 0) {
       document.getElementById("imageBot").src = "img/paper.png";
@@ -43,14 +56,23 @@ function animate() {
     document.getElementById("imagePlayer").src = "img/paper.png";
     document.getElementById("imagePlayer").style.height = "300px";
     document.getElementById("imagePlayer").style.width = "300px";
+    paperRepeat += 1;
+    rockRepeat = 0;
+    scissorsRepeat = 0;
   } else if (playerMove.toLowerCase() == "rock") {
     document.getElementById("imagePlayer").src = "img/rock.png";
     document.getElementById("imagePlayer").style.height = "300px";
     document.getElementById("imagePlayer").style.width = "300px";
+    paperRepeat = 0;
+    rockRepeat += 1;
+    scissorsRepeat = 0;
   } else if (playerMove.toLowerCase() == "scissors") {
     document.getElementById("imagePlayer").src = "img/scissors.png";
     document.getElementById("imagePlayer").style.height = "300px";
     document.getElementById("imagePlayer").style.width = "300px";
+    paperRepeat = 0;
+    rockRepeat = 0;
+    scissorsRepeat += 1;
   }
   //Proccess win or lose
   if (playerMove.toLowerCase() == "paper" && rndm == 0) {
@@ -82,4 +104,6 @@ function animate() {
   }
   //Score
   document.getElementById("score").innerHTML = `Score: ${botScore} - ${score}`;
+
+  console.log(rndm);
 }
